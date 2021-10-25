@@ -21,7 +21,7 @@ jobs:
       - if: github.event_name	== 'push'
         run: echo "${{ github.event.head_commit.message }}" | yarn commitlint
       - if: github.event_name	== 'pull_request'
-        run: echo "${{ github.event.title }}" | yarn commitlint
+        run: echo "${{ github.event.pull_request.title }}" | yarn commitlint
   release:
     name: Release
     if: github.ref == 'refs/heads/main'
