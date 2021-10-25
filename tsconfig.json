@@ -1,0 +1,7 @@
+{
+  "extends": "@tsconfig/node14",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "downlevelIteration": true
+  }
+}

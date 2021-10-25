@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          cache: yarn
+      - run: yarn install
+      - run: yarn prettier --check .
+      - run: yarn cspell '**'
+      - run: echo "${{ github.event.head_commit.message }}" | yarn commitlint
+  release:
+    name: Release
+    if: github.ref == 'refs/heads/main'
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          cache: yarn
+      - run: yarn install
+      - run: yarn semantic-release --branches main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

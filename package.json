@@ -1,0 +1,35 @@
+{
+  "name": "tsconfig-react",
+  "version": "1.0.0-development",
+  "description": "TypeScript config preset for React.js projects.",
+  "keywords": [
+    "tsconfig",
+    "tsconfig-json"
+  ],
+  "repository": "github:phuctm97/tsconfig-react",
+  "license": "MIT",
+  "author": "Minh-Phuc Tran <me@phuctm97.com> (https://phuctm97.com)",
+  "files": [
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@tsconfig/node14": "^1.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/prompt-cli": "^13.2.1",
+    "cspell": "^5.12.3",
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1",
+    "prettier-plugin-packagejson": "^2.2.13",
+    "semantic-release": "^18.0.0"
+  },
+  "engines": {
+    "node": "^14.0",
+    "yarn": "^1.22"
+  }
+}
