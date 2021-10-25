@@ -16,7 +16,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@tsconfig/node14": "^1.0.1"
+    "@tsconfig/create-react-app": "^1.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
