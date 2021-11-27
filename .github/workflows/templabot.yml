@@ -1,0 +1,23 @@
+name: Templabot
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: templabot/sync@v1
+        with:
+          template: tsconfig
+      - uses: actions/setup-node@v2
+        with:
+          cache: yarn
+      - run: yarn install
+      - run: yarn prettier --write .
